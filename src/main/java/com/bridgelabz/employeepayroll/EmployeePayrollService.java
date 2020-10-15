@@ -15,6 +15,9 @@ public class EmployeePayrollService {
 		this.employeePayrollList = employeePayrollList;
 	}
 
+	public EmployeePayrollService() {
+	}
+
 	public void printWelcome() {
 		System.out.println("Welcome to Employee Payroll Service");
 		Scanner consoleInput = new Scanner(System.in);
@@ -46,5 +49,12 @@ public class EmployeePayrollService {
 		if (ioService.equals(IOService.FILE_IO))
 			return new EmployeePayrollFileIOService().countEntries();
 		return 0;
+	}
+
+	public long printEmployeePayrollData(IOService ioService) {
+		if (ioService.equals(IOService.FILE_IO))
+			return new EmployeePayrollFileIOService().printData();
+		return 0;
+
 	}
 }

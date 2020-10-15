@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeePayrollFileIOService {
@@ -30,5 +31,14 @@ public class EmployeePayrollFileIOService {
 			System.out.println(e.getMessage());
 		}
 		return numOfEntries;
+	}
+
+	public long printData() {
+		try {
+			Files.lines(new File(PAYROLL_FILE_NAME).toPath()).forEach(lines -> System.out.println(lines));
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
+		return countEntries();
 	}
 }
