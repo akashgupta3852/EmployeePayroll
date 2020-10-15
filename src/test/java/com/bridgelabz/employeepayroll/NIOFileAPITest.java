@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import org.junit.Assert;
@@ -36,7 +39,7 @@ public class NIOFileAPITest {
 		Assert.assertTrue(Files.exists(playPath));
 
 		// Creating file
-		IntStream.range(1, 10).forEach(fileNum -> {
+		IntStream.range(1, 4).forEach(fileNum -> {
 			Path tempFile = Paths.get(playPath + "/temp" + fileNum);
 			Assert.assertTrue(Files.notExists(tempFile));
 			try {
@@ -46,5 +49,14 @@ public class NIOFileAPITest {
 			}
 			Assert.assertTrue(Files.exists(tempFile));
 		});
+
+		// Listing Files, Directories as well as Files with extensions
+		List<String> expectedPathList = new ArrayList<>();
+		expectedPathList.add("C:\\Users\\Akash Gupta\\TempPlayGround\\temp1");
+		expectedPathList.add("C:\\Users\\Akash Gupta\\TempPlayGround\\temp2");
+		expectedPathList.add("C:\\Users\\Akash Gupta\\TempPlayGround\\temp3");
+		List<String> resultPathList = Files.list(playPath).filter(Files::isRegularFile).map(path -> path.toString())
+				.collect(Collectors.toList());
+		Assert.assertEquals(expectedPathList, resultPathList);
 	}
 }
