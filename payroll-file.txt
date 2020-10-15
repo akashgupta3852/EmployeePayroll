@@ -1,0 +1,4 @@
+id= 1, name: Akash Gupta, salary: 50500.0
+id= 2, name: Diksha Gupta, salary: 52000.0
+id= 3, name: Divyansh Kumar, salary: 51000.0
+id= 4, name: Golu Jaiswal, salary: 51900.0

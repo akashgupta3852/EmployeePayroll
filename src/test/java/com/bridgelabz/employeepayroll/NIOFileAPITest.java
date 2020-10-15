@@ -23,7 +23,7 @@ public class NIOFileAPITest {
 	}
 
 	@Test
-	public void givenPathWhenCheckedThenConfirm() throws IOException {
+	public void givenPath_WhenChecked_ThenConfirm() throws IOException {
 		// Checking file existence
 		Path homePath = Paths.get(HOME);
 		Assert.assertTrue(Files.exists(homePath));

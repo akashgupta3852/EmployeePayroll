@@ -6,7 +6,7 @@ import org.junit.Test;
 public class EmployeePayrollDataTest {
 	@Test
 	public void givenEmployeePayrollData_WhenAdded_ShouldPassTheDeatils() {
-		EmployeePayrollData empPayrollData = new EmployeePayrollData(1, "Akash GUpta", 51000);
+		EmployeePayrollData empPayrollData = new EmployeePayrollData(1, "Akash GUpta", 51000.0);
 		boolean result = (empPayrollData.empId == 1) && (empPayrollData.empName.equals("Akash GUpta"))
 				&& (empPayrollData.empSalary == 51000);
 		Assert.assertTrue(result);
