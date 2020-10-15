@@ -57,4 +57,8 @@ public class EmployeePayrollService {
 		return 0;
 
 	}
+
+	public long showEntries(IOService ioService) {
+		return countEntries(ioService);
+	}
 }
